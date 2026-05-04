@@ -1,4 +1,4 @@
-import { Container, Title, Categories } from "@/components/shared";
+import { Container, Title, Categories, SortPopup } from "@/components/shared";
 
 export default function Page() {
   return (
@@ -6,6 +6,7 @@ export default function Page() {
       <Container className="mt-10">
         <Title text="Все пиццы" size="lg" className="font-extrabold"/>
         <Categories />
+        <SortPopup />
       </Container>
     </>
   )
