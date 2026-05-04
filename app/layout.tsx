@@ -4,6 +4,7 @@ import { Nunito } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
+import { Header } from '@/components/shared';
 
 const nunito = Nunito({
   subsets: ['cyrillic'],
@@ -35,6 +36,7 @@ export default function RootLayout({
     >
       <body>
         <main className='min-h-screen'>
+          <Header />
           <ThemeProvider>{children}</ThemeProvider>
         </main>
       </body>
