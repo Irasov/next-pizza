@@ -34,7 +34,9 @@ export default function RootLayout({
       className={cn("antialiased", nunito.variable)}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <main className='min-h-screen'>
+          <ThemeProvider>{children}</ThemeProvider>
+        </main>
       </body>
     </html>
   )
