@@ -7,3 +7,4 @@ export { TopBar } from './top-bar';
 export { Filtres } from './filtres';
 export { FilterCheckbox } from './filter-checkbox';
 export { CheckboxFiltersGroup } from './checkbox-filters-group';
+export { ProductCard } from './product-card';

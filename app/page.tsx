@@ -1,4 +1,4 @@
-import { Container, Title, TopBar, Filtres } from "@/components/shared";
+import { Container, Title, TopBar, Filtres, ProductCard } from "@/components/shared";
 
 export default function Page() {
   return (
@@ -17,7 +17,9 @@ export default function Page() {
 
           {/* Список товаров */}
           <div className="flex-1">
-            <div className="flex flex-col gap-16">Список товаров</div>
+            <div className="flex flex-col gap-16">
+              <ProductCard id={1} name="Пепперони" price={1000} imageUrl="https://i.postimg.cc/p5JgFRPm/pizza-1.png" />
+            </div>
           </div>
 
         </div>
