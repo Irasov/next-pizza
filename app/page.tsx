@@ -1,4 +1,4 @@
-import { Container, Title, TopBar, Filtres, ProductCard } from "@/components/shared";
+import { Container, Title, TopBar, Filtres, ProductsGroupList } from "@/components/shared";
 
 export default function Page() {
   return (
@@ -8,7 +8,7 @@ export default function Page() {
       </Container>
       <TopBar />
       <Container className="pb-14"> 
-        <div className="flex gap-[60px]">
+        <div className="flex gap-[80px]">
 
           {/* Фильтрация */}
           <div className="mt-10 w-[250px]">
@@ -18,7 +18,66 @@ export default function Page() {
           {/* Список товаров */}
           <div className="flex-1">
             <div className="flex flex-col gap-16">
-              <ProductCard id={1} name="Пепперони" price={1000} imageUrl="https://i.postimg.cc/p5JgFRPm/pizza-1.png" />
+              <ProductsGroupList title="Пиццы" items={[
+                {
+                  id: 1,
+                  name: "Пепперони",
+                  imageUrl: "https://i.postimg.cc/p5JgFRPm/pizza-1.png",
+                  price: 1000,
+                  items: [{ price: 1000}]
+                },
+                {
+                  id: 1,
+                  name: "Пепперони",
+                  imageUrl: "https://i.postimg.cc/p5JgFRPm/pizza-1.png",
+                  price: 1000,
+                  items: [{ price: 1000}]
+                },
+                {
+                  id: 1,
+                  name: "Пепперони",
+                  imageUrl: "https://i.postimg.cc/p5JgFRPm/pizza-1.png",
+                  price: 1000,
+                  items: [{ price: 1000}]
+                },
+                {
+                  id: 1,
+                  name: "Пепперони",
+                  imageUrl: "https://i.postimg.cc/p5JgFRPm/pizza-1.png",
+                  price: 1000,
+                  items: [{ price: 1000}]
+                },
+              ]} categoryId={1} />
+              <ProductsGroupList title="Завтрак" items={[
+                {
+                  id: 1,
+                  name: "Пепперони",
+                  imageUrl: "https://i.postimg.cc/p5JgFRPm/pizza-1.png",
+                  price: 1000,
+                  items: [{ price: 1000}]
+                },
+                {
+                  id: 1,
+                  name: "Пепперони",
+                  imageUrl: "https://i.postimg.cc/p5JgFRPm/pizza-1.png",
+                  price: 1000,
+                  items: [{ price: 1000}]
+                },
+                {
+                  id: 1,
+                  name: "Пепперони",
+                  imageUrl: "https://i.postimg.cc/p5JgFRPm/pizza-1.png",
+                  price: 1000,
+                  items: [{ price: 1000}]
+                },
+                {
+                  id: 1,
+                  name: "Пепперони",
+                  imageUrl: "https://i.postimg.cc/p5JgFRPm/pizza-1.png",
+                  price: 1000,
+                  items: [{ price: 1000}]
+                },
+              ]} categoryId={2} />
             </div>
           </div>
 
