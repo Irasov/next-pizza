@@ -27,57 +27,61 @@ export default function Page() {
                   items: [{ price: 1000}]
                 },
                 {
-                  id: 1,
+                  id: 2,
                   name: "Пепперони",
                   imageUrl: "https://i.postimg.cc/p5JgFRPm/pizza-1.png",
                   price: 1000,
                   items: [{ price: 1000}]
                 },
                 {
-                  id: 1,
+                  id: 3,
                   name: "Пепперони",
                   imageUrl: "https://i.postimg.cc/p5JgFRPm/pizza-1.png",
                   price: 1000,
                   items: [{ price: 1000}]
                 },
                 {
-                  id: 1,
+                  id: 4,
                   name: "Пепперони",
                   imageUrl: "https://i.postimg.cc/p5JgFRPm/pizza-1.png",
                   price: 1000,
                   items: [{ price: 1000}]
                 },
               ]} categoryId={1} />
-              <ProductsGroupList title="Завтрак" items={[
+
+              <ProductsGroupList 
+                title="Завтрак"
+                categoryId={2}
+                items={[
                 {
-                  id: 1,
+                  id: 6,
                   name: "Пепперони",
                   imageUrl: "https://i.postimg.cc/p5JgFRPm/pizza-1.png",
                   price: 1000,
                   items: [{ price: 1000}]
                 },
                 {
-                  id: 1,
+                  id: 7,
                   name: "Пепперони",
                   imageUrl: "https://i.postimg.cc/p5JgFRPm/pizza-1.png",
                   price: 1000,
                   items: [{ price: 1000}]
                 },
                 {
-                  id: 1,
+                  id: 8,
                   name: "Пепперони",
                   imageUrl: "https://i.postimg.cc/p5JgFRPm/pizza-1.png",
                   price: 1000,
                   items: [{ price: 1000}]
                 },
                 {
-                  id: 1,
+                  id: 9,
                   name: "Пепперони",
                   imageUrl: "https://i.postimg.cc/p5JgFRPm/pizza-1.png",
                   price: 1000,
                   items: [{ price: 1000}]
                 },
-              ]} categoryId={2} />
+              ]} />
             </div>
           </div>
 
