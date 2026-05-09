@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { ProductCard, Title } from "./";
 import React from 'react';
 import { useIntersection } from 'react-use';
+import { useCategoryStore } from "../../store/category";
 
 interface Props {
   title: string;
@@ -20,15 +21,15 @@ export const ProductsGroupList: React.FC<React.PropsWithChildren<Props>> = ({
   listClassName, 
   categoryId,
  }) => {
+  const setActiveCategoryId = useCategoryStore((state) => state.setActiveId);
   const intersectionRef = React.useRef<HTMLDivElement>(null);
-
   const intersection = useIntersection(intersectionRef as React.RefObject<HTMLElement>, {
     threshold: 0.4,
   });
 
   React.useEffect(() => {
     if (intersection?.isIntersecting) {
-      console.log(title, categoryId);
+      setActiveCategoryId(categoryId);
     }
   }, [categoryId, intersection?.isIntersecting, title]);
     

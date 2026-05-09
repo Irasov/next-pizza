@@ -50,7 +50,7 @@ export default function Page() {
               ]} categoryId={1} />
 
               <ProductsGroupList 
-                title="Завтрак"
+                title="Комбо"
                 categoryId={2}
                 items={[
                 {
