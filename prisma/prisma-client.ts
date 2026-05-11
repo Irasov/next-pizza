@@ -20,37 +20,3 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 export default prisma;
-
-//
-
-// import { PrismaClient } from "@prisma/client/extension";
-
-
-// const prismaClientSingelton = () => {
-//   return new PrismaClient({
-//     datasourceUrl: process.env.DATABASE_URL,
-//   });
-// }
-
-// declare global {
-//   var prismaGlobal: undefined | ReturnType<typeof prismaClientSingelton>;
-// }
-
-// export const prisma = globalThis.prismaGlobal ?? prismaClientSingelton();
-
-
-// if (process.env.NODE_ENV !== "production") globalThis.prismaGlobal = prisma;
-
-//
-
-// import { PrismaClient } from '@prisma/client' // ✅ правильный импорт
-
-// const globalForPrisma = globalThis as unknown as {
-//   prisma: PrismaClient | undefined
-// }
-
-// export const prisma = globalForPrisma.prisma ?? new PrismaClient()
-
-// if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
-
-// export default prisma

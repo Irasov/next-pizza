@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "eslint",
     "prisma:push": "prisma db push",
+    "postinstall": "prisma generate",
     "prisma:studio": "prisma studio",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit"
