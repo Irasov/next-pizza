@@ -1,19 +1,19 @@
-import "dotenv/config"
-import { Pool } from "pg"
-import { PrismaPg } from "@prisma/adapter-pg"
+import "dotenv/config";
+import { Pool } from "pg";
+import { PrismaPg } from "@prisma/adapter-pg";
 
-import { Prisma, PrismaClient } from "../src/generated/prisma/client"
-import { hashSync } from "bcrypt"
-import { categories, ingridients, products } from "./constants"
+import { Prisma, PrismaClient } from "../src/generated/prisma/client";
+import { hashSync } from "bcrypt";
+import { categories, ingridients, products } from "./constants";
 
-const connectionString = `${process.env.DATABASE_URL}`
-const pool = new Pool({ connectionString })
-const adapter = new PrismaPg(pool)
-const prisma = new PrismaClient({ adapter })
+const connectionString = `${process.env.DATABASE_URL}`;
+const pool = new Pool({ connectionString });
+const adapter = new PrismaPg(pool);
+const prisma = new PrismaClient({ adapter });
 
 const randomNumber = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min) * 10 + min * 10) / 10
-}
+};
 
 const generateProductItem = ({
   productId,
@@ -30,7 +30,7 @@ const generateProductItem = ({
     pizzaType,
     size,
   } as Prisma.ProductItemCreateManyInput
-}
+};
 
 async function up() {
   await prisma.user.createMany({
@@ -161,7 +161,7 @@ async function up() {
         }
       }, 
   });
-}
+};
 
 async function down() {
   await prisma.$executeRaw`TRUNCATE TABLE "User" RESTART IDENTITY CASCADE;`
@@ -171,7 +171,7 @@ async function down() {
   await prisma.$executeRaw`TRUNCATE TABLE "ProductItem" RESTART IDENTITY CASCADE;`
   await prisma.$executeRaw`TRUNCATE TABLE "Cart" RESTART IDENTITY CASCADE;`
   await prisma.$executeRaw`TRUNCATE TABLE "CartItem" RESTART IDENTITY CASCADE;`
-}
+};
 
 async function main() {
   try {
@@ -180,7 +180,7 @@ async function main() {
   } catch (e) {
     console.error(e)
   }
-}
+};
 
 main()
   .then(async () => {
@@ -192,4 +192,4 @@ main()
     await prisma.$disconnect()
     await pool.end()
     process.exit(1)
-  })
+  });
