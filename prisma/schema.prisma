@@ -20,6 +20,7 @@ model User {
   provider         String?
   providerId       String?
   verificationCode VerificationCode?
+  verified         DateTime
 }
 
 model Category {
