@@ -1,20 +1,22 @@
-"use client"
-import React from "react"
-import { FilterCheckbox, FilterChecboxProps } from "./filter-checkbox"
-import { Input, Skeleton } from "../ui"
+"use client";
+import React from "react";
+import { FilterCheckbox, FilterChecboxProps } from "./filter-checkbox";
+import { Input, Skeleton } from "../ui";
 
 type Item = FilterChecboxProps
 
 interface Props {
   title: string;
   items: Item[];
-  defaultItems: Item[];
+  defaultItems?: Item[];
   limit?: number;
   loading?: boolean;
   searchInputPlaceholder?: string;
   className?: string;
-  onChange?: (values: string[]) => void;
+  onClickCheckBox?: (id: string) => void;
+  selected?: Set<string>;
   defaultValue?: string[];
+  name?: string;
 }
 
 export const CheckboxFiltersGroup: React.FC<Props> = ({
@@ -25,7 +27,9 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
   searchInputPlaceholder = "Поиск...",
   className,
   loading,
-  onChange,
+  onClickCheckBox,
+  selected,
+  name,
   defaultValue,
 }) => {
   const [showAll, setShowAll] = React.useState(false)
@@ -51,7 +55,7 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
     ? items.filter((item) =>
         item.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
       )
-    : defaultItems.slice(0, limit)
+    : (defaultItems || items).slice(0, limit)
 
   return (
     <div className={className}>
@@ -70,8 +74,9 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
       <div className="scrollbar flex max-h-96 flex-col gap-4 overflow-auto pr-2">
         {list.map((item) => (
           <FilterCheckbox
-            onCheckedChange={(ids) => console.log(ids)}
-            checked={false}
+            onCheckedChange={() => onClickCheckBox?.(item.value)}
+            name={name}
+            checked={selected?.has(item.value)}
             key={String(item.value)}
             value={item.value}
             text={item.text}
