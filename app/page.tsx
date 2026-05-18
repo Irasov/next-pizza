@@ -24,7 +24,7 @@ export default async function Page() {
       <Container className="mt-10">
         <Title text="Все пиццы" size="lg" className="font-extrabold" />
       </Container>
-      <TopBar />
+      <TopBar categories={categories.filter((category)=> category.products.length > 0)}/>
       <Container className="pb-14">
         <div className="flex gap-[80px]">
           {/* Фильтрация */}
