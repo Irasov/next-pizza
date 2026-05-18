@@ -22,5 +22,12 @@ export  const useQueryFilters = (filters: Filters) => {
       scroll: false,
     });
 
-  },[filters, router]);
+  },[
+    filters.prices.priceFrom,
+    filters.prices.priceTo,
+    Array.from(filters.pizzaTypes).join(','),
+    Array.from(filters.sizes).join(','),
+    Array.from(filters.selectedIngredients).join(','),
+    router
+  ]);
 }
