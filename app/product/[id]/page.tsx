@@ -1,3 +1,9 @@
+import { Container } from "@/components/shared";
+import prisma from "@/prisma/prisma-client";
+import { notFound } from "next/navigation";
+import { ProductImage, Title } from "@/components/shared";
+
+
 type Props = {
   params: Promise<{
     id: string;
@@ -6,5 +12,19 @@ type Props = {
 
 export default async function ProductPage({params}: Props) {
   const { id } = await params;
-  return <p>Product {id}</p>
-} 
+  const product  = await prisma.product.findFirst({ where: { id: Number(id) } });
+  if (!product) {
+    return notFound();
+  }
+  return (
+  <Container className="flex flex-col my-10"> 
+    <div className="flex flex-1">
+      <ProductImage imageUrl={product.imageUrl} size={40} className="" />
+      <div className="w-[490px] bg-[#FCFCFC] p-7">
+        <Title text={product.name} size="md" className="font-extrabold mb-1"/>
+        <p className="text-gray-400 ">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+      </div>
+    </div>
+  </Container>
+)} 
+
