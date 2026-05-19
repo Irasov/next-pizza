@@ -5,7 +5,7 @@ import {
   Filtres,
   ProductsGroupList,
 } from "@/components/shared";
-import {prisma} from '../prisma/prisma-client';
+import {prisma} from '../../prisma/prisma-client';
 
 export default async function Page() {
   const categories = await prisma.category.findMany({
