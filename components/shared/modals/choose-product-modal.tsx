@@ -1,11 +1,11 @@
 'use client';
 
-import { DialogContent, Dialog} from '@/components/ui/dialog';
+import { DialogContent, Dialog, DialogTitle} from '@/components/ui/dialog';
 import { Product } from "@/src/generated/prisma/client";
 import { cn } from "@/lib/utils";
 import React from "react";
-import { Title } from '../title';
 import { useRouter } from 'next/navigation';
+import { ChoosePizzaForm } from '../choose-pizza-form';
 
 interface Props {
   product: Product;
@@ -16,8 +16,11 @@ export const ChooseProductModal: React.FC<Props> = ({product, className }) => {
   const router = useRouter();
   return (
       <Dialog open={Boolean(product)} onOpenChange={() => router.back()}>
-        <DialogContent className={cn(className, "p-0 w-[1060px] max-w-[1060px] min-h-[500px] bg-white overflow-hidden")}>
-          <Title text= {product.name} />
+        <DialogContent className={cn(className, "p-0 w-265 max-w-265 min-h-125 bg-white overflow-hidden")}>
+          <DialogTitle className="sr-only">
+            {product.name}
+          </DialogTitle>
+          <ChoosePizzaForm imageUrl={product.imageUrl} name={product.name} ingredients={[]}/>
         </DialogContent>
       </Dialog>
   )
