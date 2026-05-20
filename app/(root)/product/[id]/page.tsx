@@ -1,8 +1,6 @@
-import { Container, GroupVariants } from "@/components/shared";
+import { Container, GroupVariants, PizzaImage, Title  } from "@/shared/components/shared";
 import prisma from "@/prisma/prisma-client";
 import { notFound } from "next/navigation";
-import { PizzaImage, Title } from "@/components/shared";
-
 
 type Props = {
   params: Promise<{

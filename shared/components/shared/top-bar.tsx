@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/shared/lib/utils"
 import React from "react"
 import { Container, Categories, SortPopup } from "./"
 import { Category } from "@/src/generated/prisma/client"
