@@ -1,25 +1,33 @@
 import { cn } from "@/shared/lib/utils";
 import React from "react";
-import { PizzaImage, Title, GroupVariants } from "./";
+import { PizzaImage, Title, GroupVariants, IngredientItem } from "./";
 import { Button } from "../ui";
 import { pizzaSizes, PizzaSize, PizzaType, pizzaTypes  } from "@/shared/constants/pizza";
+import { Ingridient, ProductItem } from "@/src/generated/prisma/client";
+import { useSet } from "react-use";
 
 interface Props {
   className?: string;
   imageUrl: string;
   name: string;
-  ingredients: any[];
-  items?: any[];
-  onClickAdd?: VoidFunction;
+  ingredients: Ingridient[];
+  items: ProductItem[];
+  onClickAddCart?: VoidFunction;
 }
 
-export const ChoosePizzaForm: React.FC<Props> = ({ className, name, items, imageUrl, ingredients, onClickAdd }) => {
+export const ChoosePizzaForm: React.FC<Props> = ({ className, name, items, imageUrl, ingredients, onClickAddCart }) => {
   const [size, setSize] = React.useState<PizzaSize>(20);
   const [type, setType] = React.useState<PizzaType>(1);
+  const [selectedIngredients, {toggle: addIngredient}] = useSet(new Set<number>([]))
 
  
   const textDetails  = '30 см, традиционное тесто';
-  const totalPrice = 350;
+
+  const pizzaPrice = items.find((item) => item.pizzaType == type && item.size == size)?.price || 0;
+  const totalIngredientPrice: number = ingredients
+    .filter((ingredient) => selectedIngredients.has(ingredient.id))
+    .reduce((acc, ingredient) => acc + ingredient.price, 0); 
+   const totalPrice = pizzaPrice + totalIngredientPrice;
 
   return (
     <div className={cn("flex flex-1", className)}>
@@ -38,7 +46,21 @@ export const ChoosePizzaForm: React.FC<Props> = ({ className, name, items, image
             value={String(type)} 
             onClick={value => setType(Number(value) as PizzaType)}
           />
+          <div className="bg-gray-50 p-5 rounded-md h-[220px] overflow-auto srollbar mt-2">
+            <div className="grid grid-cols-3 gap-3">
+              {ingredients.map((ingredient) => (
+                <IngredientItem
+                  key={ingredient.id}
+                  name={ingredient.name}
+                  price={ingredient.price}
+                  imageUrl={ingredient.imageUrl}
+                  onClick={() => addIngredient(ingredient.id)}
+                  active={selectedIngredients.has(ingredient.id)} 
+                />
+              ))}
+            </div>
           </div>
+        </div>
         <Button className="h-13.75 px-10 text-base rounded-[18px] w-full mt-10">
           Добавить в корзину за {totalPrice} ₽
         </Button>
