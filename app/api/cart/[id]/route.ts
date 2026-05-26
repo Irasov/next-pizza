@@ -49,3 +49,37 @@ export async function PATCH(req: NextRequest, {params}: Props) {
   }
   
 }
+
+export async function DELETE(req: NextRequest, {params}: Props) {
+  try {
+    const { id } = await params;
+    const token = req.cookies.get('cartToken')?.value;
+
+    if (!token) {
+      return NextResponse.json({error: 'Cart token not fond'});
+    }
+
+    const cartItem = await prisma .cartItem.findFirst({
+      where: {
+        id: Number(id),
+      }
+    });
+
+    if (!cartItem) {
+      return NextResponse.json({error: 'Cart item not fond'});
+    }
+
+    await prisma.cartItem.delete({
+      where: {
+        id: Number(id),
+      }
+    });
+
+    const updateUserCart = await updateCartTotalAmount(token);
+    return NextResponse.json(updateUserCart);
+
+  }catch (error) {
+      console.error('[CART_DELETE] Server error', error);
+      return NextResponse.json({message: 'Не удалось удалить корзину'}, {status: 500});
+    }
+  }
