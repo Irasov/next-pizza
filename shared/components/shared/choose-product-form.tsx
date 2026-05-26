@@ -8,11 +8,16 @@ interface Props {
   imageUrl: string;
   name: string;
   items?: any[];
-  onClickAdd?: VoidFunction;
+  onSubmit?: VoidFunction;
 
 }
 
-export const ChooseProductForm: React.FC<Props> = ({ className, name, items, imageUrl, onClickAdd }) => {
+/**
+ * 
+ * Форма выбора продукта
+ */
+
+export const ChooseProductForm: React.FC<Props> = ({ className, name, items, imageUrl, onSubmit }) => {
   const textDetails  = '30 см, традиционное тесто';
   const totalPrice = 350;
   return (
@@ -27,7 +32,7 @@ export const ChooseProductForm: React.FC<Props> = ({ className, name, items, ima
       <div className="w-[490px] bg-[#F7F6F6] p-7">
         <Title text={name} size="md" className="font-extrabold mb-1" />
         <p className="text-gray-400">{textDetails}</p>
-        <Button className="h-13.75 px-10 text-base rounded-[18px] w-full mt-10">
+        <Button onClick={onSubmit} className="h-13.75 px-10 text-base rounded-[18px] w-full mt-10">
           Добавить в корзину за {totalPrice} ₽
         </Button>
       </div>
