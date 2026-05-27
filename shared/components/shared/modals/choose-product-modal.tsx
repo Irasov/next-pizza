@@ -53,6 +53,7 @@ export const ChooseProductModal: React.FC<Props> = ({product, className }) => {
                imageUrl={product.imageUrl} 
                name={product.name} 
                onSubmit={onAddProduct}
+               price = {firstItem.price}
               />
             )
           }

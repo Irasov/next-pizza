@@ -31,7 +31,7 @@ export const getCartDetails = (data: CartDTO): ReturnProps => {
       price: ingredient.price,
     })),
   }));
-
+  console.log("XXXXX", items)
   return {
     items,
     totalAmount: data.totalAmount,
