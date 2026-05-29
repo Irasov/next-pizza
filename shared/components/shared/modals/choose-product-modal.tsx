@@ -26,10 +26,10 @@ export const ChooseProductModal: React.FC<Props> = ({product, className }) => {
     })
   }
 
-  const onAddPizza = (productItemId: number, ingredients: number[]) => {
+  const onAddPizza = (productItemId: number, ingridients: number[]) => {
     addCartItem({
       productItemId,
-      ingredients
+      ingridients
     })
   }
 
