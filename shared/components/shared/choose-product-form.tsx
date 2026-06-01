@@ -32,7 +32,7 @@ export const ChooseProductForm: React.FC<Props> = ({ className, name, loading, i
       </div>
       <div className="w-[490px] bg-[#F7F6F6] p-7">
         <Title text={name} size="md" className="font-extrabold mb-1" />
-        <Button loading={loading} onClick={onSubmit} className="h-13.75 px-10 text-base rounded-[18px] w-full mt-10">
+        <Button loading={loading} onClick={() => onSubmit?.()} className="h-13.75 px-10 text-base rounded-[18px] w-full mt-10">
           Добавить в корзину за {price} ₽
         </Button>
       </div>

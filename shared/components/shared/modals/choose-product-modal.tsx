@@ -22,20 +22,6 @@ export const ChooseProductModal: React.FC<Props> = ({product, className }) => {
   const addCartItem = useCartStore(state => state.addCartItem);
   const loading = useCartStore(state => state.loading);
 
-  // const onAddProduct = () => {
-  //   addCartItem({
-  //     productItemId: firstItem.id
-  //   })
-  // }
-
-  // const onAddPizza =  async (productItemId: number, ingridients: number[]) => {
-  //     addCartItem({
-  //       productItemId,
-  //       ingridients
-  //     });
-  //   } 
-  // }
-
   const onSubmit = async (productItemId?: number, ingridients?: number[]) => {
     try {
       const itemId = productItemId ?? firstItem.id;
