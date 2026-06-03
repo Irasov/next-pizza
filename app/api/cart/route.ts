@@ -59,9 +59,7 @@ export async function POST(req: NextRequest) {
       where: {
         cartId: userCart.id,
         productItemId: data.productItemId,
-        ingridients: {
-          every: {id: {in: data.ingridients}}
-        },
+        ingridients: { every: {id: {in: data.ingridients}} },
       },
     });
 
@@ -75,10 +73,9 @@ export async function POST(req: NextRequest) {
           quantity: findCartItem.quantity + 1,
         },
       });
-    }
-
-    //Если товар не найден 
-    await prisma.cartItem.create({
+    } else {
+      //Если товар не найден 
+      await prisma.cartItem.create({
       data: {
         cartId: userCart.id,
         productItemId: data.productItemId,
@@ -86,6 +83,9 @@ export async function POST(req: NextRequest) {
         ingridients: { connect: data.ingridients?.map((id) => ({id})) },
       },
     });
+    }
+
+
 
     const updatedUserCart = await updateCartTotalAmount(token);
     const resp = NextResponse.json(updatedUserCart);  
