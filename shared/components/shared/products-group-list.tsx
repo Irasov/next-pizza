@@ -1,17 +1,18 @@
 "use client"
 
-import { cn } from "@/shared/lib/utils"
-import { ProductCard, Title } from "./"
-import React from "react"
-import { useIntersection } from "react-use"
-import { useCategoryStore } from "../../store/category"
+import { cn } from "@/shared/lib/utils";
+import { ProductCard, Title } from "./";
+import React from "react";
+import { useIntersection } from "react-use";
+import { useCategoryStore } from "../../store/category";
+import { ProductWithRelation } from "../../../@types/prisma";
 
 interface Props {
-  title: string
-  items: any[]
-  className?: string
-  listClassName?: string
-  categoryId: number
+  title: string;
+  items: ProductWithRelation[];
+  className?: string;
+  listClassName?: string;
+  categoryId: number;
 }
 
 export const ProductsGroupList: React.FC<React.PropsWithChildren<Props>> = ({
@@ -47,6 +48,7 @@ export const ProductsGroupList: React.FC<React.PropsWithChildren<Props>> = ({
             name={product.name}
             price={product.items[0].price}
             imageUrl={product.imageUrl}
+            ingredients={product.ingridient}
           />
         ))}
       </div>
