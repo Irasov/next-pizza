@@ -1,4 +1,5 @@
 import { Header } from "@/shared/components/shared/header";
+import { Container } from "@/shared/components/shared";
 
 export const metadata = {
   title: 'Next Pizza | Корзина',
@@ -9,8 +10,11 @@ export default function CheckoutLayout({ children } : { children: React.ReactNod
   return (
 
     <main className="min-h-screen bg-[#F4F1EE]">
-      <Header hasSeaarch={false} className="border-gray-200" />
-      {children}
+      
+      <Container>
+        <Header hasSeaarch={false} hasCart={false} className="border-gray-200" />
+        {children}
+      </Container>   
     </main>
   )
 }

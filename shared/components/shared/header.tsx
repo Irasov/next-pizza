@@ -8,12 +8,13 @@ import Link from "next/link";
 
 interface Props {
   hasSeaarch?: boolean;
+  hasCart?: boolean;
   className?: string
 }
 
-export const Header: React.FC<Props> = ({ hasSeaarch = true, className }) => {
+export const Header: React.FC<Props> = ({ hasSeaarch = true, hasCart = true, className }) => {
   return (
-    <header className={cn("border border-b", className)}>
+    <header className={cn("border-b", className)}>
       <Container className="flex items-center justify-between py-8">
 
         {/* Левая часть*/}
@@ -43,7 +44,7 @@ export const Header: React.FC<Props> = ({ hasSeaarch = true, className }) => {
             <User size={16} />
             Войти
           </Button>
-          <CartButton />
+          {hasCart && <CartButton />}
         </div>
       </Container>
     </header>
