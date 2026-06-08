@@ -1,4 +1,4 @@
-import { Container, Title, WhiteBlock, CheckoutItemDetails } from "@/shared/components/shared";
+import { Container, Title, WhiteBlock, CheckoutItemDetails, CheckoutItem } from "@/shared/components/shared";
 import { Textarea } from "@/shared/components/ui";
 import { Input } from "@/shared/components/ui/input";
 import { ArrowRight, Package, Percent, Truck } from "lucide-react";
@@ -12,7 +12,16 @@ export default function CheckoutPage() {
         {/* Левая часть страницы*/}
         <div className="flex flex-col gap-18 flex-1 mb-20">
           <WhiteBlock title="1. Корзина">
-            123
+            <div className="flex flex-col gap-5">
+              <CheckoutItem 
+                id={1}
+                imageUrl="https://media.dodostatic.net/image/r:292x292/019bcbc9b40370a4b47c6298dcac292a.jpg"
+                details="Описание пиццы ее ингредиенты"
+                name="Пицца"
+                price={213}
+                quantity={3}
+              />
+            </div>
           </WhiteBlock>
           <WhiteBlock title="2. Персональные данные">
             <div className="grid grid-cols-2 gap-5">
