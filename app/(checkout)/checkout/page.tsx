@@ -1,10 +1,20 @@
-import { Container, Title, WhiteBlock, CheckoutItemDetails, CheckoutItem } from "@/shared/components/shared";
+'use client';
+
+import { Container, Title, WhiteBlock, CheckoutItem, CheckoutSidebar } from "@/shared/components/shared";
 import { Textarea } from "@/shared/components/ui";
 import { Input } from "@/shared/components/ui/input";
-import { ArrowRight, Package, Percent, Truck } from "lucide-react";
-import { Button } from "@/shared/components/ui";
+import { useCart } from "@/shared/hooks";
+import { getCartItemDetails } from "@/shared/lib";
+import { PizzaType, PizzaSize } from "@/shared/constants/pizza";
 
 export default function CheckoutPage() {
+   const { totalAmount, updateItemQuantity, items, removeCartItem } = useCart();
+
+  const onClickCountButton = (id: number, quantity: number, type: 'plus' | 'minus') => {
+    const newQuantity = type == 'plus' ? quantity + 1: quantity - 1;
+    updateItemQuantity(id, newQuantity);
+  }
+
   return (
     <Container className="mt-16">
       <Title text="Оформление заказа"  className="font-extrabold mb-8 text-[36px]"/>
@@ -13,14 +23,27 @@ export default function CheckoutPage() {
         <div className="flex flex-col gap-18 flex-1 mb-20">
           <WhiteBlock title="1. Корзина">
             <div className="flex flex-col gap-5">
-              <CheckoutItem 
-                id={1}
-                imageUrl="https://media.dodostatic.net/image/r:292x292/019bcbc9b40370a4b47c6298dcac292a.jpg"
-                details="Описание пиццы ее ингредиенты"
-                name="Пицца"
-                price={213}
-                quantity={3}
-              />
+              {
+                items.map((item) => (
+                  <CheckoutItem 
+                  key={item.id}
+                  id={item.id}
+                  imageUrl={item.imageUrl}
+                  details={ 
+                    getCartItemDetails(
+                      item.ingredients, 
+                      item.pizzaType as PizzaType, 
+                      item.pizzaSize as PizzaSize,
+                    )}
+                    name={item.name}
+                    price={item.price}
+                    quantity={item.quantity}
+                    disabled={item.disabled}
+                    onClickCountButton = {(type) => onClickCountButton(item.id, item.quantity, type)}
+                    onClickRemove={() => removeCartItem(item.id)}
+                  />
+                ))
+              }
             </div>
           </WhiteBlock>
           <WhiteBlock title="2. Персональные данные">
@@ -44,41 +67,7 @@ export default function CheckoutPage() {
         </div>
         {/* Правая часть страницы*/}
         <div className="w-[450px]">
-          <WhiteBlock className="p-6 sticky top-4">
-            <div className="flex flex-col gap-1">
-              <span className="text-xl">Итого:</span>
-              <span className="text-[34px] font-extralight">3586 ₽</span>
-            </div>
-            <CheckoutItemDetails title={
-              <div className="flex items-center">
-                <Package  size={18} className="mr-2 text-gray-400"/>
-                Стоимость товаров:
-              </div>
-              } 
-              value="3000" 
-            />
-            <CheckoutItemDetails title={
-              <div className="flex items-center">
-                <Percent  size={18} className="mr-2 text-gray-400"/>
-                Налоги:
-              </div>
-              } 
-              value="286" 
-            />
-            <CheckoutItemDetails title={
-              <div className="flex items-center">
-                <Truck  size={18} className="mr-2 text-gray-400"/>
-                Доставка:
-              </div>
-              } 
-              value="300" 
-            />
-
-            <Button type="submit" className="w-full h-14 rounded-2xl nt-6 text-base font-bole">
-              Перейти к оплате
-              <ArrowRight className="w-5 ml-2" />
-            </Button>
-          </WhiteBlock>
+            <CheckoutSidebar totalAmount={totalAmount}/>
         </div>
       </div>
     </Container>
