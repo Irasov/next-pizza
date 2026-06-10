@@ -9,10 +9,9 @@ interface Props {
 }
 
 export const AddressInput: React.FC<Props> = ({ onChange }) => {
-  const  api = process.env.DADATA_API_KEY
   return (
     <AddressSuggestions
-      token={String(api)}
+      token={process.env.NEXT_PUBLIC_DADATA_API_KEY ?? ""}
       onChange={(data) => onChange?.(data?.value)}
     />
   );
