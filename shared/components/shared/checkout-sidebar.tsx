@@ -54,7 +54,7 @@ export const CheckoutSidebar: React.FC<Props> = ({totalAmount , loading, classNa
         value={loading ? <Skeleton className='h-6 w-16 rounded-[6px]'/> : `${DELIVERY_PRICE} ₽`}
       />
 
-      <Button type="submit" className="w-full h-14 rounded-2xl nt-6 text-base font-bole">
+      <Button loading={loading} type="submit" className="w-full h-14 rounded-2xl nt-6 text-base font-bole">
         Перейти к оплате
         <ArrowRight className="w-5 ml-2" />
       </Button>
