@@ -4,9 +4,10 @@ import React from 'react';
 import { PayOrderTemplate } from '@/shared/components/shared/email-templates/pay-order';
 import { prisma } from '@/prisma/prisma-client'
 import { CheckoutFormValues } from "@/shared/constants/checkout-form-schema";
-import { sendEmail } from '@/shared/lib';
+import { sendEmail, createPayment } from '@/shared/lib';
 import { OrederStatus } from '@/src/generated/prisma/client';
 import { cookies } from 'next/headers';
+
 
 export async function createOrder(data: CheckoutFormValues) {
   try {
@@ -77,7 +78,26 @@ export async function createOrder(data: CheckoutFormValues) {
       },
     });
 
-    //TODO: Сделать создание ссылки оплаты
+   const paymentData = await createPayment({
+    amount: order.totalAmount,
+    orderId: order.id,
+    description: "Оплатите заказ №" + order.id,
+   })
+
+   if(!paymentData) {
+    throw new Error('Payment data not found');
+   }
+
+  await prisma.order.update({
+      where: {
+        id: order.id,
+      },
+      data: {
+        paymentId: paymentData.id,
+      },
+    });
+
+  const paymentUrl = paymentData.confirmation.confirmation_url;
 
 
     await sendEmail(
@@ -86,12 +106,13 @@ export async function createOrder(data: CheckoutFormValues) {
       PayOrderTemplate({
         orderId: order.id,
         totalAmount: order.totalAmount,
-        paymentUrl: "https://yandex.kz/"
+        paymentUrl,
       })
     )
 
-    return  "https://yandex.kz/"
-  }catch(err) {
+    return  paymentUrl;
+
+  } catch(err) {
     console.error('[CreateOreder] Server error', err);
   }
 }
