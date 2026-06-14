@@ -31,6 +31,8 @@ export interface Metadata {
   order_id: string;
 }
 
+
+//Типизиция для checkoute\callvack\route.ts
 export type PaymentCallbackData = {
   type: string;
   event: string;
