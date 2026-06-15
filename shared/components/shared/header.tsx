@@ -2,7 +2,7 @@
 
 import { cn } from "@/shared/lib/utils";
 import React from "react";
-import { Container, SearchInput, CartButton } from "./";
+import { Container, SearchInput, CartButton, ProfileButton } from "./";
 import Image from "next/image";
 import { Button } from "../ui";
 import { User } from "lucide-react";
@@ -52,10 +52,7 @@ export const Header: React.FC<Props> = ({ hasSeaarch = true, hasCart = true, cla
         {/* Правая часть*/}
 
         <div className="flex items-center gap-3">
-          <Button variant="outline" className="flex items-center gap-1">
-            <User size={16} />
-            Войти
-          </Button>
+          <ProfileButton/>
           {hasCart && <CartButton />}
         </div>
       </Container>
