@@ -4,11 +4,10 @@ import { cn } from "@/shared/lib/utils";
 import React from "react";
 import { Container, SearchInput, CartButton, ProfileButton } from "./";
 import Image from "next/image";
-import { Button } from "../ui";
-import { User } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
+import { AuthModal } from "./modals";
 
 interface Props {
   hasSeaarch?: boolean;
@@ -18,6 +17,7 @@ interface Props {
 
 export const Header: React.FC<Props> = ({ hasSeaarch = true, hasCart = true, className }) => {
   const searchParams =  useSearchParams();
+  const [opnenAuthModal,setOpenAuthModal] = React.useState(false);
  
   React.useEffect(()=> {
     if(searchParams.has('paid')) {
@@ -52,7 +52,8 @@ export const Header: React.FC<Props> = ({ hasSeaarch = true, hasCart = true, cla
         {/* Правая часть*/}
 
         <div className="flex items-center gap-3">
-          <ProfileButton/>
+          <AuthModal open={opnenAuthModal} onClose={() => setOpenAuthModal(false)}/>
+          <ProfileButton onClickSignIn={() => setOpenAuthModal(true)}/>
           {hasCart && <CartButton />}
         </div>
       </Container>
