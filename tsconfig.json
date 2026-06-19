@@ -29,6 +29,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
-, "components/shared/checkbox-filters-group"  ],
+   
+   
+, "components/shared/checkbox-filters-group", "@types/*.d.ts"  ],
   "exclude": ["node_modules"]
 }
