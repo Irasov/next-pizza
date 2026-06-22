@@ -27,7 +27,7 @@ export const Header: React.FC<Props> = ({ hasSeaarch = true, hasCart = true, cla
     }
 
     if(searchParams.has('verified')) {
-      toastMessage = 'Поочта успешно подтверждеа!';
+      toastMessage = 'Почта успешно подтверждена!';
     }
 
     if (toastMessage) {
