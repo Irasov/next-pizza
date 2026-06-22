@@ -5,10 +5,9 @@ import React from "react";
 import { Container, SearchInput, CartButton, ProfileButton } from "./";
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { AuthModal } from "./modals";
-import { useRouter } from "next/router";
 
 interface Props {
   hasSeaarch?: boolean;
