@@ -20,7 +20,7 @@ model User {
   provider         String?
   providerId       String?
   verificationCode VerificationCode?
-  verified         DateTime
+  verified         DateTime?
 }
 
 model Category {
@@ -111,7 +111,29 @@ model VerificationCode {
   userId    Int      @unique
   code      String
   createdAt DateTime @default(now())
+  @@unique([userId, code])
 }
+
+model Story {
+    id              Int    @id @default(autoincrement())
+    previewImageUrl String
+
+    items StoryItem[]
+
+    createdAt DateTime @default(now())
+}
+
+model StoryItem {
+    id Int @id @default(autoincrement())
+
+    storyId Int
+    story   Story @relation(fields: [storyId], references: [id])
+
+    sourceUrl String
+
+    createdAt DateTime @default(now())
+}
+
 
 enum OrederStatus {
   PENDING

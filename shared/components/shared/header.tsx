@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
 import { AuthModal } from "./modals";
+import { useRouter } from "next/router";
 
 interface Props {
   hasSeaarch?: boolean;
@@ -16,12 +17,23 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({ hasSeaarch = true, hasCart = true, className }) => {
+  const router = useRouter();
   const searchParams =  useSearchParams();
   const [opnenAuthModal,setOpenAuthModal] = React.useState(false);
  
   React.useEffect(()=> {
+    let toastMessage = "";
     if(searchParams.has('paid')) {
-      toast.success('Заказ успешно оплачен! Информация отправлена на почту.')
+      toastMessage = 'Заказ успешно оплачен! Информация отправлена на почту.';
+    }
+
+    if(searchParams.has('verified')) {
+      toastMessage = 'Поочта успешно подтверждеа!';
+    }
+
+    if (toastMessage) {
+      router.replace('/');
+      toast.success(toastMessage, { duration: 3000 });
     }
   },[]);
   
