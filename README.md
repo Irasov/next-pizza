@@ -1,7 +1,7 @@
 # NextPizza / Разработка FullStack интернет-магазина (клон ДодоПиццы) [NextJS, TS, Prisma, NextAuth]
 
 [Ссылка на курс](https://youtu.be/GUwizGbY4cc?si=rHbIVt7Or4y_BEqs)
-[Deploy](https://next-pizza-eder0oqak-calcifer1.vercel.app/)
+[Deploy](https://next-pizza-alpha-fawn.vercel.app/)
 
 🤔 Что входит в курс?
 
