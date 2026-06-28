@@ -1,21 +1,43 @@
-# Next.js template
+# NextPizza / Разработка FullStack интернет-магазина (клон ДодоПиццы) [NextJS, TS, Prisma, NextAuth]
 
-This is a Next.js template with shadcn/ui.
+[Ссылка на курс](https://youtu.be/GUwizGbY4cc?si=rHbIVt7Or4y_BEqs)
+[Deploy](https://next-pizza-eder0oqak-calcifer1.vercel.app/)
 
-## Adding components
+🤔 Что входит в курс?
 
-To add components to your app, run the following command:
+1. Полноценная фильтрация товаров с серверным рендерингом и хранением параметров в URI
+2. Вывод товаров, добавление товаров в корзину
+3. Авторизация и регистрация с помощью логин-пароля / GitHub / Google
+4. Подтверждение аккаунта через письмо на E-Mail
+5. Редактирование профиля
+6. Покупка товаров с помощью Yookassa
+7. Вывод товара в модальном окне или в отдельной странице (Parallel Routes)
+8. Отправка писем на почту при: регистрации, создании заказа и после успешной оплаты
+9. Vercel для хранения данных БД и деплоя приложения
+10. Как работают клиентские и серверные компоненты на реальных примерах (не инфа с доки)
 
-```bash
-npx shadcn@latest add button
-```
+⚙️Что по технологиям?
 
-This will place the ui components in the `components` directory.
+1. NextJS (Parallel Routes, Group Routes, Server Actions, API)
+2. TypeScript
+3. TailwindCSS + ShadCN
+4. Prisma + PostgreSQL
+5. NextAuth
+6. React Hook Form + Zod
+7. Zustand
+8. react-use
+9. nextjs-toploader
+10. react-hot-toast
+11. react-insta-stories
+12. lucide-react
+13. Resend
 
-## Using components
+💾 Ссылка на исходник и дизайн: https://t.me/archakovblog/601
+🎉 Как задеплоить Vue Sneakers: • Как задеплоить фронтенд проект на Vercel?  
+👟 Ссылка на JSON-товаров: https://604781a0efa572c1.mokky.dev/items
 
-To use the components in your app, import them as follows:
-
-```tsx
-import { Button } from "@/components/ui/button";
-```
+🔗 Ссылки на мои ресурсы:
+— Telegram-канал: https://t.me/archakov_im
+— Поддержать донатом: https://boosty.to/archakov_blog
+— GitHub: https://github.com/Archakov06
+— Моё резюме: https://career.habr.com/archakovim
