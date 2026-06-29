@@ -13,6 +13,8 @@ html {
 }
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant max-935 (@media(max-width: 935.98px));
+@custom-variant max-599 (@media(max-width: 599.98px));
 
 @theme inline {
   --font-heading: var(--font-sans);

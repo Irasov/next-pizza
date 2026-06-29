@@ -26,9 +26,9 @@ export default async function Page({ searchParams }: { searchParams: Promise<Get
       <Stories />
 
       <Container className="pb-14">
-        <div className="flex gap-[80px]">
+        <div className="flex gap-20 max-599:flex-col">
           {/* Фильтрация */}
-          <div className="mt-10 w-[250px]">
+          <div className="mt-10 w-62.5">
             <Suspense>
               <Filtres />
             </Suspense>

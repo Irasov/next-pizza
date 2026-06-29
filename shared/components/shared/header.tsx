@@ -38,7 +38,7 @@ export const Header: React.FC<Props> = ({ hasSeaarch = true, hasCart = true, cla
   
   return (
     <header className={cn("border-b", className)}>
-      <Container className="flex items-center justify-between py-8">
+      <Container className="flex items-center justify-between py-8 flex-wrap max-935:justify-center gap-5">
 
         {/* Левая часть*/}
 
@@ -55,7 +55,7 @@ export const Header: React.FC<Props> = ({ hasSeaarch = true, hasCart = true, cla
         </Link>
 
         {hasSeaarch && (
-          <div className="mx-10 flex-1">
+          <div className="mx-10 flex-1 min-w-[320px]">
             <SearchInput />
           </div>
         )}

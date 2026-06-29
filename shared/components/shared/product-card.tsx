@@ -1,3 +1,4 @@
+import { cn } from "@/shared/lib/utils";
 import React from "react";
 import Link from "next/link";
 import { Title } from "./";
@@ -23,7 +24,7 @@ export const ProductCard: React.FC<Props> = ({
   className,
 }) => {
   return (
-    <div className={className}>
+    <div className={cn("min-w-[252px]",className)}>
       <Link href={`/product/${id}`}>
         <div className="flex h-[260px] justify-center rounded-lg bg-secondary p-6">
           <img className="h-[215px] w-[215px]" src={imageUrl} alt={name} />
