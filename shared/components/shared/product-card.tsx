@@ -24,10 +24,10 @@ export const ProductCard: React.FC<Props> = ({
   className,
 }) => {
   return (
-    <div className={cn("min-w-[252px]",className)}>
+    <div className={cn("min-w-63",className)}>
       <Link href={`/product/${id}`}>
-        <div className="flex h-[260px] justify-center rounded-lg bg-secondary p-6">
-          <img className="h-[215px] w-[215px]" src={imageUrl} alt={name} />
+        <div className="flex h-65 justify-center rounded-lg bg-secondary p-6">
+          <img className="h-53.75 w-53.75" src={imageUrl} alt={name} />
         </div>
         <Title text={name} size="sm" className="mt-3 mb-1 font-bold" />
         <p className="text-sm text-gray-400">

@@ -35,9 +35,9 @@ export const ChoosePizzaForm: React.FC<Props> = ({ className, name, items, image
   const {totalPrice, textDetails} = GetPizzaDetails(type, size, items, ingredients, selectedIngredients)
 
   return (
-    <div className={cn("flex flex-1", className)}>
+    <div className={cn("flex flex-1 max-xl:flex-col", className)}>
       <PizzaImage imageUrl={imageUrl} size={size}/>
-      <div className="w-[490px] bg-[#F7F6F6] p-7">
+      <div className=" bg-[#F7F6F6] p-7 max-xl:p-1">
         <Title text={name} size="md" className="font-extrabold mb-1" />
         <p className="text-gray-400">{textDetails}</p>
         <div className="flex flex-col gap-4 mt-5">
@@ -52,7 +52,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({ className, name, items, image
             onClick={value => setType(Number(value) as PizzaType)}
           />
           <div className="bg-gray-50 p-5 rounded-md h-[220px] overflow-auto srollbar mt-2">
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-3 gap-3 max-xl:grid-cols-1">
               {ingredients.map((ingredient) => (
                 <IngredientItem
                   key={ingredient.id}
@@ -66,7 +66,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({ className, name, items, image
             </div>
           </div>
         </div>
-        <Button loading={loading} className="h-13.75 px-10 text-base rounded-[18px] w-full mt-10" onClick={handleClickAdd}>
+        <Button loading={loading} className="h-13.75  text-base rounded-[18px] w-full mt-10" onClick={handleClickAdd}>
           Добавить в корзину за {totalPrice} ₽
         </Button>
       </div>
