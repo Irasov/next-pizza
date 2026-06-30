@@ -20,7 +20,7 @@ export const IngredientItem: React.FC<Props> = ({className, active, price, name,
       onClick={onClick}
     >
       {active && <CircleCheck className="absolute top-2 right-2 text-primary"/>}   
-      <img src={imageUrl} alt={name} width={110} height={110}/>
+      <img src={imageUrl} alt={name} width={110} height={110} className="max-599:w-11 max-599:h-11"/>
       <span className="text-xs mb-1">{name}</span>
       <span className="font-bold">{price}</span>
     </div>

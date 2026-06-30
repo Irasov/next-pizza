@@ -51,8 +51,8 @@ export const ChoosePizzaForm: React.FC<Props> = ({ className, name, items, image
             value={String(type)} 
             onClick={value => setType(Number(value) as PizzaType)}
           />
-          <div className="bg-gray-50 p-5 rounded-md h-[220px] overflow-auto srollbar mt-2">
-            <div className="grid grid-cols-3 gap-3 max-xl:grid-cols-1">
+          <div className="bg-gray-50 p-5 rounded-md h-55 overflow-auto srollbar mt-2 max-599:p-1 max-599:h-32">
+            <div className="grid grid-cols-3 gap-3 max-599:grid-cols-2">
               {ingredients.map((ingredient) => (
                 <IngredientItem
                   key={ingredient.id}

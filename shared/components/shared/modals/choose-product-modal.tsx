@@ -17,7 +17,7 @@ export const ChooseProductModal: React.FC<Props> = ({product, className }) => {
 
   return (
       <Dialog open={Boolean(product)} onOpenChange={() => router.back()}>
-        <DialogContent className={cn(className, "p-0 min-w-[90%] min-h-[500px] bg-white overflow-hidden")}>
+        <DialogContent className={cn(className, "p-0 min-w-[98%] bg-white overflow-hidden")}>
           <DialogTitle className="sr-only">
             {product.name}
           </DialogTitle>

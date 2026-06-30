@@ -19,7 +19,7 @@ interface Props {
 export const GroupVariants: React.FC<Props> = ({items, onClick, className, value}) => {
   
   return (
-    <div className={cn("flex-col justify-between bg-[#F3F3F7] rounded-3xl p-1 select-none", className)}>
+    <div className={cn("flex justify-between bg-[#F3F3F7] rounded-3xl p-1 select-none", className)}>
       {
         items.map((item) => (
           <button key={item.name} onClick={() => onClick?.(item.value)}
