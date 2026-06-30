@@ -16,9 +16,9 @@ export const CartButton: React.FC<Props> = ({ className }) => {
   const items = useCartStore((state) => state.items);
   return (
     < CartDrawer>
-      <Button loading={loading} className={cn("group relative", {'w-[105px]': loading} ,className)}>
+      <Button loading={loading} className={cn("group relative", {'w-26.25': loading} ,className)}>
         <b>{totalAmount} ₽</b>
-        <span className="mx-3 h-full w-[1px] bg-white/30" />
+        <span className="mx-3 h-full w-px bg-white/30" />
         <div className="flex items-center gap-1 transition duration-300 group-hover:opacity-0">
           <ShoppingCart size={16} className="relative" strokeWidth={2} />
           <b>{items.length}</b>
