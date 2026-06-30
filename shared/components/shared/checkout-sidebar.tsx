@@ -20,7 +20,7 @@ export const CheckoutSidebar: React.FC<Props> = ({totalAmount , loading, classNa
   const vatPrice = (totalAmount * VAT) / 100;
 
   return (
-    <WhiteBlock className="p-6 sticky top-4">
+    <WhiteBlock className="py-6 px-12 sticky top-4 max-599:px-2 max-599:py-2 max-599:static">
       <div className="flex flex-col gap-1">
         <span className="text-xl">Итого:</span>
         { loading ? (
