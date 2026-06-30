@@ -22,7 +22,7 @@ export default function RootLayout({
       className={cn("antialiased", nunito.variable)}
     >
       <head>
-        <link data-rh="true" rel="icon" href="logo.png" />
+        <link data-rh="true" rel="icon" href="/logo.png" />
       </head>
       <body>
         <Providers>
