@@ -9,7 +9,7 @@ interface Props {
 
 export const PizzaImage: React.FC<Props> = ({imageUrl, size, className}) => {
   return (
-    <div className={cn('flex items-center justify-center flex-1 relative w-full overflow-hidden ', className)}>
+    <div className={cn('min-h-46 flex items-center justify-center flex-1 relative w-full overflow-hidden ', className)}>
       <img 
         src={imageUrl}
         alt="logo" 
@@ -18,11 +18,16 @@ export const PizzaImage: React.FC<Props> = ({imageUrl, size, className}) => {
           'w-100 h-100': size==30,
           'w-125 h-125': size==40,
         },
-        'max-xl:w-45 max-xl:h-45')}
+        {
+          'max-xl:w-25 max-xl:h-25': size==20,
+          'max-xl:w-35 max-xl:h-35': size==30,
+          'max-xl:w-45 max-xl:h-45': size==40,
+        }
+    )}
         />
 
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-dashed rounded-full border-gray-200 w-[450px] h-[450px]" />
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-dotted rounded-full border-gray-100 w-[370px] h-[370px]" />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-dashed rounded-full border-gray-200 w-112.5 h-w-112.5" />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-dotted rounded-full border-gray-100 w-92.5 h-92.5" />
     </div>
   )
 }
