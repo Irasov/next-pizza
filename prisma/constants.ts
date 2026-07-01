@@ -121,55 +121,55 @@ export const products = [
   {
     name: "Омлет с ветчиной и грибами",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/019b12c7353b76d988cab1310b627eb4.jpg",
+      "https://e.radikal.host/2026/07/01/omlet.webp",
     categoryId: 2,
   },
   {
     name: "Омлет с томатами",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/019b12c46dc3775aaccc9635e40ec892.jpg",
+      "https://e.radikal.host/2026/07/01/omlettomat.webp",
     categoryId: 2,
   },
   {
     name: "Кофе Латте",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/01982280d7c4789d94ac8dac4f1d064c.jpg",
+      "https://e.radikal.host/2026/07/01/latte.webp",
     categoryId: 2,
   },
   {
     name: "Дэнвич ветчина и сыр",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/019897d07b6c7939a756349c707b6e43.jpg",
+      "https://e.radikal.host/2026/07/01/denvich.webp",
     categoryId: 3,
   },
   {
     name: "Картофель из печи",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/019bd3d8e05c7916b49a779e4d430294.jpg",
+      "https://e.radikal.host/2026/07/01/kartoha.webp",
     categoryId: 3,
   },
   {
     name: "Классический молочный коктейль",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/0198227af30a72b3b2614e9da1d277a3.jpg",
+      "https://e.radikal.host/2026/07/01/milk.webp",
     categoryId: 4,
   },
   {
     name: "Шоколадный молочный коктейль",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/0199864ca5fe77de868217896c71a63c.jpg",
+      "https://e.radikal.host/2026/07/01/shoko.webp",
     categoryId: 4,
   },
   {
     name: "Лимонад клубничный мохито",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/01998634722a77e1a44e67057bb2909a.jpg",
+      "https://e.radikal.host/2026/07/01/strawberry.webp",
     categoryId: 5,
   },
   {
     name: "Морс Вишня",
     imageUrl:
-      "https://media.dodostatic.net/image/r:292x292/0197f86de6d4772aa558450aff00e595.jpg",
+      "https://e.radikal.host/2026/07/01/cherry.webp",
     categoryId: 5,
   },
 ]

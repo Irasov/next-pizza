@@ -75,7 +75,7 @@ async function up() {
     data: {
       name: "Пепперони фреш",
       imageUrl:
-        "https://media.dodostatic.net/image/r:292x292/0198bf57bc517218ab93c762f4b0193e.jpg",
+        "https://e.radikal.host/2026/07/01/peperoni.webp",
       categoryId: 1,
       ingridient: {
         connect: ingridients.slice(0, 5),
@@ -87,7 +87,7 @@ async function up() {
     data: {
       name: "Сырная",
       imageUrl:
-        "https://media.dodostatic.net/image/r:292x292/0198bf40eb1171aabe90b1b3ce07c0c5.jpg",
+        "https://e.radikal.host/2026/07/01/cheese.webp",
       categoryId: 1,
       ingridient: {
         connect: ingridients.slice(5, 10),
@@ -99,7 +99,7 @@ async function up() {
     data: {
       name: "Масала",
       imageUrl:
-        "https://media.dodostatic.net/image/r:292x292/019bcbc9b40370a4b47c6298dcac292a.jpg",
+        "https://e.radikal.host/2026/07/01/masala.webp",
       categoryId: 1,
       ingridient: {
         connect: ingridients.slice(10, 40),
